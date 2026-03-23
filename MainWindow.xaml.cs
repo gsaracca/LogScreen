@@ -33,8 +33,8 @@ namespace _
     {
         public MainWindow()
         {
-            this.InitializeComponent();
-        (this.AppWindow.Presenter as Microsoft.UI.Windowing.OverlappedPresenter)?.Maximize();
+            this.InitializeComponent()
+            (this.AppWindow.Presenter as Microsoft.UI.Windowing.OverlappedPresenter)?.Maximize();
             var task=new Task(()=> {
                 var builder = WebApplication.CreateBuilder();
 
