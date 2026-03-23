@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "Hash": "NzV8vJ71KgVGhDStj3gpFxVQftK1foTDHtC+z/6ik/I=",
-  "Source": ".",
-  "BasePath": "_content/.",
+  "Hash": "LDvFVUg4wYt29x8x+t8JVCSMlUxQT9gCKnGNlPElmFc=",
+  "Source": "LogScreen",
+  "BasePath": "_content/LogScreen",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": ".\\wwwroot",
-      "Source": ".",
+      "Name": "LogScreen\\wwwroot",
+      "Source": "LogScreen",
       "ContentRoot": "D:\\source\\PlayGround.Net\\LogScreen\\wwwroot\\",
-      "BasePath": "_content/.",
+      "BasePath": "_content/LogScreen",
       "Pattern": "**"
     }
   ],
@@ -56,10 +56,10 @@
     },
     {
       "Identity": "D:\\source\\PlayGround.Net\\LogScreen\\wwwroot\\app.css",
-      "SourceId": ".",
+      "SourceId": "LogScreen",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\source\\PlayGround.Net\\LogScreen\\wwwroot\\",
-      "BasePath": "_content/.",
+      "BasePath": "_content/LogScreen",
       "RelativePath": "app.css",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -75,10 +75,10 @@
     },
     {
       "Identity": "D:\\source\\PlayGround.Net\\LogScreen\\wwwroot\\favicon.ico",
-      "SourceId": ".",
+      "SourceId": "LogScreen",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\source\\PlayGround.Net\\LogScreen\\wwwroot\\",
-      "BasePath": "_content/.",
+      "BasePath": "_content/LogScreen",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
       "AssetMode": "All",

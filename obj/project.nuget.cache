@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "byT4FsAbkBw=",
+  "dgSpecHash": "nxJV7GXzlto=",
   "success": true,
-  "projectFilePath": "D:\\source\\PlayGround.Net\\LogScreen\\..csproj",
+  "projectFilePath": "D:\\source\\PlayGround.Net\\LogScreen\\LogScreen.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\anglesharp\\1.1.2\\anglesharp.1.1.2.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.2\\communitytoolkit.mvvm.8.2.2.nupkg.sha512",

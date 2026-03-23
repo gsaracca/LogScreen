@@ -2369,9 +2369,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\source\\PlayGround.Net\\LogScreen\\..csproj",
-      "projectName": ".",
-      "projectPath": "D:\\source\\PlayGround.Net\\LogScreen\\..csproj",
+      "projectUniqueName": "D:\\source\\PlayGround.Net\\LogScreen\\LogScreen.csproj",
+      "projectName": "LogScreen",
+      "projectPath": "D:\\source\\PlayGround.Net\\LogScreen\\LogScreen.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
       "outputPath": "D:\\source\\PlayGround.Net\\LogScreen\\obj\\",
       "projectStyle": "PackageReference",
