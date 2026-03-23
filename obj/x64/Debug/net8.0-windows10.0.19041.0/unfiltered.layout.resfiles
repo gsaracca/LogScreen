@@ -17,6 +17,6 @@ Components\Pages\OperationPage.razor
 Components\Pages\Weather.razor
 Components\Routes.razor
 global.json
-..staticwebassets.runtime.json
+LogScreen.staticwebassets.runtime.json
 wwwroot\app.css
 wwwroot\favicon.ico

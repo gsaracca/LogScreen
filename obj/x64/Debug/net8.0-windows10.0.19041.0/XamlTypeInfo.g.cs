@@ -13,17 +13,17 @@ namespace _
     public partial class App : global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2403")]
-        private global::_.__XamlTypeInfo.XamlMetaDataProvider __appProvider;
+        private global::_.LogScreen_XamlTypeInfo.XamlMetaDataProvider __appProvider;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2403")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::_.__XamlTypeInfo.XamlMetaDataProvider _AppProvider
+        private global::_.LogScreen_XamlTypeInfo.XamlMetaDataProvider _AppProvider
         {
             get
             {
                 if (__appProvider == null)
                 {
-                    __appProvider = new global::_.__XamlTypeInfo.XamlMetaDataProvider();
+                    __appProvider = new global::_.LogScreen_XamlTypeInfo.XamlMetaDataProvider();
                 }
                 return __appProvider;
             }
@@ -61,7 +61,7 @@ namespace _
     }
 }
 
-namespace _.__XamlTypeInfo
+namespace _.LogScreen_XamlTypeInfo
 {
     /// <summary>
     /// Main class for providing metadata for the app or library
@@ -70,15 +70,15 @@ namespace _.__XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class XamlMetaDataProvider : global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::_.__XamlTypeInfo.XamlTypeInfoProvider _provider = null;
+        private global::_.LogScreen_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
 
-        private global::_.__XamlTypeInfo.XamlTypeInfoProvider Provider
+        private global::_.LogScreen_XamlTypeInfo.XamlTypeInfoProvider Provider
         {
             get
             {
                 if (_provider == null)
                 {
-                    _provider = new global::_.__XamlTypeInfo.XamlTypeInfoProvider();
+                    _provider = new global::_.LogScreen_XamlTypeInfo.XamlTypeInfoProvider();
                 }
                 return _provider;
             }
@@ -128,7 +128,7 @@ namespace _.__XamlTypeInfo
                 {
                     xamlType = CreateXamlType(typeIndex);
                 }
-                var userXamlType = xamlType as global::_.__XamlTypeInfo.XamlUserType;
+                var userXamlType = xamlType as global::_.LogScreen_XamlTypeInfo.XamlUserType;
                 if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
                 {
                     global::Microsoft.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
@@ -167,7 +167,7 @@ namespace _.__XamlTypeInfo
                 {
                     xamlType = CreateXamlType(typeIndex);
                 }
-                var userXamlType = xamlType as global::_.__XamlTypeInfo.XamlUserType;
+                var userXamlType = xamlType as global::_.LogScreen_XamlTypeInfo.XamlUserType;
                 if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
                 {
                     global::Microsoft.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
@@ -320,8 +320,8 @@ namespace _.__XamlTypeInfo
 
         private global::Microsoft.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::_.__XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::_.__XamlTypeInfo.XamlUserType userType;
+            global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::_.LogScreen_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -329,7 +329,7 @@ namespace _.__XamlTypeInfo
             {
 
             case 0:   //  Microsoft.UI.Xaml.Controls.XamlControlsResources
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.ResourceDictionary"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.ResourceDictionary"));
                 userType.Activator = Activate_0_XamlControlsResources;
                 userType.DictionaryAdd = MapAdd_0_XamlControlsResources;
                 userType.AddMemberName("UseCompactResources");
@@ -337,26 +337,26 @@ namespace _.__XamlTypeInfo
                 break;
 
             case 1:   //  Microsoft.UI.Xaml.ResourceDictionary
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  Object
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 3:   //  Boolean
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 4:   //  _.Views.MyWebview
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2"));
                 userType.Activator = Activate_4_MyWebview;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 5:   //  Microsoft.UI.Xaml.Controls.WebView2
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.FrameworkElement"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.FrameworkElement"));
                 userType.Activator = Activate_5_WebView2;
                 userType.AddMemberName("Source");
                 userType.AddMemberName("CanGoBack");
@@ -367,56 +367,56 @@ namespace _.__XamlTypeInfo
                 break;
 
             case 6:   //  Microsoft.UI.Xaml.FrameworkElement
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 7:   //  System.Uri
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
             case 8:   //  Microsoft.Web.WebView2.Core.CoreWebView2
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
             case 9:   //  Windows.UI.Color
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
             case 10:   //  System.ValueType
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
             case 11:   //  _.MainWindow
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
                 userType.Activator = Activate_11_MainWindow;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 12:   //  Microsoft.UI.Xaml.Window
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 13:   //  _.Views.OperationWindow
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
                 userType.AddMemberName("OperationId");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 14:   //  String
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 15:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.Activator = Activate_15_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
@@ -430,18 +430,18 @@ namespace _.__XamlTypeInfo
                 break;
 
             case 16:   //  Microsoft.UI.Xaml.DependencyObject
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 17:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
-                userType = new global::_.__XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType = new global::_.LogScreen_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.CollectionAdd = VectorAdd_17_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
             case 18:   //  Int32
-                xamlType = new global::_.__XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -615,101 +615,101 @@ namespace _.__XamlTypeInfo
 
         private global::Microsoft.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::_.__XamlTypeInfo.XamlMember xamlMember = null;
-            global::_.__XamlTypeInfo.XamlUserType userType;
+            global::_.LogScreen_XamlTypeInfo.XamlMember xamlMember = null;
+            global::_.LogScreen_XamlTypeInfo.XamlUserType userType;
 
             switch (longMemberName)
             {
             case "Microsoft.UI.Xaml.Controls.XamlControlsResources.UseCompactResources":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.XamlControlsResources");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "UseCompactResources", "Boolean");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.XamlControlsResources");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "UseCompactResources", "Boolean");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_0_XamlControlsResources_UseCompactResources;
                 xamlMember.Setter = set_0_XamlControlsResources_UseCompactResources;
                 break;
             case "Microsoft.UI.Xaml.Controls.WebView2.Source":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "Source", "System.Uri");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "Source", "System.Uri");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_1_WebView2_Source;
                 xamlMember.Setter = set_1_WebView2_Source;
                 break;
             case "Microsoft.UI.Xaml.Controls.WebView2.CanGoBack":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "CanGoBack", "Boolean");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "CanGoBack", "Boolean");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_2_WebView2_CanGoBack;
                 xamlMember.Setter = set_2_WebView2_CanGoBack;
                 break;
             case "Microsoft.UI.Xaml.Controls.WebView2.CanGoForward":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "CanGoForward", "Boolean");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "CanGoForward", "Boolean");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_3_WebView2_CanGoForward;
                 xamlMember.Setter = set_3_WebView2_CanGoForward;
                 break;
             case "Microsoft.UI.Xaml.Controls.WebView2.CoreWebView2":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "CoreWebView2", "Microsoft.Web.WebView2.Core.CoreWebView2");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "CoreWebView2", "Microsoft.Web.WebView2.Core.CoreWebView2");
                 xamlMember.Getter = get_4_WebView2_CoreWebView2;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.WebView2.DefaultBackgroundColor":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "DefaultBackgroundColor", "Windows.UI.Color");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.WebView2");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "DefaultBackgroundColor", "Windows.UI.Color");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_5_WebView2_DefaultBackgroundColor;
                 xamlMember.Setter = set_5_WebView2_DefaultBackgroundColor;
                 break;
             case "_.Views.OperationWindow.OperationId":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("_.Views.OperationWindow");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "OperationId", "String");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("_.Views.OperationWindow");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "OperationId", "String");
                 xamlMember.Getter = get_6_OperationWindow_OperationId;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
                 xamlMember.Getter = get_7_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "Content", "Object");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_8_TreeViewNode_Content;
                 xamlMember.Setter = set_8_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "Depth", "Int32");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_9_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_10_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
                 xamlMember.Getter = get_11_TreeViewNode_HasUnrealizedChildren;
                 xamlMember.Setter = set_11_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_12_TreeViewNode_IsExpanded;
                 xamlMember.Setter = set_12_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
-                userType = (global::_.__XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember = new global::_.__XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
+                userType = (global::_.LogScreen_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
+                xamlMember = new global::_.LogScreen_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember.Getter = get_13_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
@@ -770,10 +770,10 @@ namespace _.__XamlTypeInfo
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.UI.Xaml.Markup.Compiler"," 3.0.0.2403")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::_.__XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::_.LogScreen_XamlTypeInfo.XamlSystemBaseType
         , global::Microsoft.UI.Xaml.Markup.IXamlType
     {
-        global::_.__XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::_.LogScreen_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Microsoft.UI.Xaml.Markup.IXamlType _baseType;
         global::Microsoft.UI.Xaml.Markup.IXamlType _boxedType;
         bool _isArray;
@@ -788,7 +788,7 @@ namespace _.__XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::_.__XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Microsoft.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::_.LogScreen_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Microsoft.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -1003,7 +1003,7 @@ namespace _.__XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Microsoft.UI.Xaml.Markup.IXamlMember
     {
-        global::_.__XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::_.LogScreen_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -1012,7 +1012,7 @@ namespace _.__XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::_.__XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::_.LogScreen_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;
