@@ -1,0 +1,126 @@
+@page "/"
+@layout LoginLayout
+@rendermode InteractiveServer
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<PageTitle>Login</PageTitle>
+
+<div style="display:flex; justify-content:center; align-items:center; min-height:100vh; background:var(--mud-palette-background);">
+    <MudPaper Style="width:400px;" Class="pa-10" Elevation="6">
+
+        <MudText Typo="Typo.h5" Align="Align.Center" Class="mb-1">
+            <MudIcon Icon="@Icons.Material.Filled.Lock" Style="vertical-align:middle; margin-right:8px;" />
+            Iniciar sesión
+        </MudText>
+        <MudText Typo="Typo.body2" Align="Align.Center" Color="Color.Secondary" Class="mb-6">
+            Ingrese sus credenciales para continuar
+        </MudText>
+
+        <EditForm Model="@this" OnSubmit="HandleLogin">
+            <MudTextField @bind-Value="_username"
+                          Label="Usuario"
+                          Variant="Variant.Outlined"
+                          Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Person"
+                          Disabled="_blocked"
+                          Class="mb-4"
+                          FullWidth="true" />
+
+            <MudTextField @bind-Value="_password"
+                          Label="Contraseña"
+                          Variant="Variant.Outlined"
+                          InputType="@_passwordInputType"
+                          Adornment="Adornment.End"
+                          AdornmentIcon="@_passwordIcon"
+                          OnAdornmentClick="TogglePasswordVisibility"
+                          Disabled="_blocked"
+                          Class="mb-5"
+                          FullWidth="true" />
+
+            @if (_attempts > 0)
+            {
+                <div class="mb-4">
+                    <div style="height:10px; border-radius:5px; background:#e0e0e0; overflow:hidden;">
+                        <div style="height:100%; width:@($"{_attempts * 25}%"); background:@_barColor; border-radius:5px; transition: width 0.4s ease, background 0.4s ease;"></div>
+                    </div>
+                    <MudText Typo="Typo.caption" Style="@($"color:{_barColor};")" Class="mt-1">
+                        @_attempts intento(s) fallido(s) de @MaxAttempts
+                    </MudText>
+                </div>
+            }
+
+            @if (_blocked)
+            {
+                <MudAlert Severity="Severity.Error" Class="mb-4" Dense="true">
+                    Acceso bloqueado tras @MaxAttempts intentos fallidos.
+                </MudAlert>
+            }
+
+            @if (_loginSuccess)
+            {
+                <MudAlert Severity="Severity.Success" Class="mb-4" Dense="true">
+                    ¡Bienvenido, @_username!
+                </MudAlert>
+            }
+
+            <MudButton ButtonType="ButtonType.Submit"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       FullWidth="true"
+                       Size="Size.Large"
+                       Disabled="_blocked || _loginSuccess">
+                Ingresar
+            </MudButton>
+        </EditForm>
+
+    </MudPaper>
+</div>
+
+@code {
+    const int MaxAttempts = 4;
+
+    string _username = "";
+    string _password = "";
+    int _attempts = 0;
+    bool _blocked = false;
+    bool _loginSuccess = false;
+
+    bool _showPassword = false;
+    InputType _passwordInputType = InputType.Password;
+    string _passwordIcon = Icons.Material.Filled.VisibilityOff;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            await JS.InvokeVoidAsync("eval", "setTimeout(()=>document.querySelector('input')?.focus(),100)");
+    }
+
+    static readonly string[] BarColors = ["#4caf50", "#cddc39", "#ff9800", "#f44336"];
+    string _barColor => _attempts > 0 ? BarColors[_attempts - 1] : "transparent";
+
+    void TogglePasswordVisibility()
+    {
+        _showPassword = !_showPassword;
+        _passwordInputType = _showPassword ? InputType.Text : InputType.Password;
+        _passwordIcon = _showPassword ? Icons.Material.Filled.Visibility : Icons.Material.Filled.VisibilityOff;
+    }
+
+    async Task HandleLogin()
+    {
+        // Credenciales de ejemplo — reemplazar con lógica real
+        if (_username == "admin" && _password == "1234")
+        {
+            _loginSuccess = true;
+            await Task.Delay(600);
+            Nav.NavigateTo("/app");
+        }
+        else
+        {
+            _attempts++;
+            _password = "";
+            if (_attempts >= MaxAttempts)
+                _blocked = true;
+        }
+    }
+}

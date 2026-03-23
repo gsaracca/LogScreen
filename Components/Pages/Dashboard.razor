@@ -1,0 +1,50 @@
+@page "/app"
+@layout AppLayout
+@rendermode InteractiveServer
+
+<PageTitle>LogScreen — Inicio</PageTitle>
+
+<MudText Typo="Typo.h5" Class="mb-6">Bienvenido</MudText>
+
+<MudGrid>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 d-flex align-center" Elevation="2">
+            <MudIcon Icon="@Icons.Material.Filled.People" Color="Color.Primary" Size="Size.Large" Class="mr-3" />
+            <div>
+                <MudText Typo="Typo.h6">Maestros</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Secondary">Clientes, Proveedores, Productos</MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 d-flex align-center" Elevation="2">
+            <MudIcon Icon="@Icons.Material.Filled.SwapHoriz" Color="Color.Success" Size="Size.Large" Class="mr-3" />
+            <div>
+                <MudText Typo="Typo.h6">Operaciones</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Secondary">Pedidos, Facturas, Pagos</MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 d-flex align-center" Elevation="2">
+            <MudIcon Icon="@Icons.Material.Filled.BarChart" Color="Color.Warning" Size="Size.Large" Class="mr-3" />
+            <div>
+                <MudText Typo="Typo.h6">Reportes</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Secondary">Ventas, Stock, Auditoría</MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 d-flex align-center" Elevation="2">
+            <MudIcon Icon="@Icons.Material.Filled.Settings" Color="Color.Error" Size="Size.Large" Class="mr-3" />
+            <div>
+                <MudText Typo="Typo.h6">Sistema</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Secondary">Usuarios, Permisos, Config</MudText>
+            </div>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+<MudAlert Severity="Severity.Info" Class="mt-8" Variant="Variant.Outlined">
+    Seleccione una operación del panel izquierdo para abrirla en una ventana independiente.
+</MudAlert>

@@ -1,0 +1,208 @@
+@inherits LayoutComponentBase
+
+<style>
+    .mud-drawer .mud-drawer-content {
+        height: 100%;
+    }
+</style>
+@inject _.Services.WindowManager WindowManager
+@inject _.Services.OperationTreeService TreeService
+@inject NavigationManager Nav
+@using _.Models
+@using _.Components
+
+<MyMudThemeProvider />
+<MyMudProviders />
+
+<MudLayout>
+
+    <!-- ═══════════════════════════ TOP MENU BAR ═══════════════════════════ -->
+    <MudAppBar Elevation="2" Dense="true">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
+                       OnClick="ToggleDrawer" />
+
+        <MudText Typo="Typo.h6" Class="ml-2 mr-6" Style="font-weight:600; letter-spacing:1px;">
+            LogScreen
+        </MudText>
+
+        <!-- Menú superior -->
+        <MudMenu Label="Archivo" Color="Color.Inherit" AnchorOrigin="Origin.BottomLeft">
+            <MudMenuItem IconSize="Size.Small" Icon="@Icons.Material.Filled.Home"
+                         OnClick='() => Nav.NavigateTo("/app")'>Inicio</MudMenuItem>
+            <MudDivider />
+            <MudMenuItem Icon="@Icons.Material.Filled.ExitToApp" IconSize="Size.Small"
+                         OnClick="Logout">Salir</MudMenuItem>
+        </MudMenu>
+
+        <MudMenu Label="Ver" Color="Color.Inherit" AnchorOrigin="Origin.BottomLeft">
+            <MudMenuItem Icon="@Icons.Material.Filled.ViewSidebar" IconSize="Size.Small"
+                         OnClick="ToggleDrawer">Panel lateral</MudMenuItem>
+            <MudMenuItem Icon="@Icons.Material.Filled.Refresh" IconSize="Size.Small"
+                         OnClick="RefreshTree">Actualizar árbol</MudMenuItem>
+        </MudMenu>
+
+        <MudMenu Label="Herramientas" Color="Color.Inherit" AnchorOrigin="Origin.BottomLeft">
+            <MudMenuItem Icon="@Icons.Material.Filled.Tune" IconSize="Size.Small">Configuración</MudMenuItem>
+        </MudMenu>
+
+        <MudMenu Label="Ayuda" Color="Color.Inherit" AnchorOrigin="Origin.BottomLeft">
+            <MudMenuItem Icon="@Icons.Material.Filled.Info" IconSize="Size.Small">Acerca de...</MudMenuItem>
+        </MudMenu>
+
+        <MudSpacer />
+
+        <MudText Typo="Typo.body2" Class="mr-2" Style="opacity:.8;">@_username</MudText>
+        <MudIconButton Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit" />
+        <MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Inherit"
+                       Title="Cerrar sesión" OnClick="Logout" />
+    </MudAppBar>
+
+    <!-- ═══════════════════════════ LEFT DRAWER (ÁRBOL) ════════════════════ -->
+    <MudDrawer @bind-Open="_drawerOpen"
+               ClipMode="DrawerClipMode.Always"
+               Elevation="2"
+               Width="260px">
+
+        <!-- Contenedor interno con flex para anclar árbol arriba y toolbar abajo -->
+        <div style="display:flex; flex-direction:column; height:100%; overflow:hidden;">
+
+            <!-- Búsqueda -->
+            <div class="px-2 pt-2 pb-1" style="flex-shrink:0;">
+                <MudTextField @bind-Value="_search"
+                              Placeholder="Buscar operación..."
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Search"
+                              Variant="Variant.Outlined"
+                              Margin="Margin.Dense"
+                              Clearable="true"
+                              FullWidth="true" />
+            </div>
+
+            <MudDivider Style="flex-shrink:0;" />
+
+            <!-- Árbol de operaciones — ocupa el espacio restante y hace scroll -->
+            <div style="flex:1; overflow-y:auto; min-height:0;">
+                <MudNavMenu Dense="true">
+                    @foreach (var module in FilteredTree)
+                    {
+                        <MudNavGroup Title="@module.Name"
+                                     Icon="@module.Icon"
+                                     @bind-Expanded="_expandedDict[module.Id]">
+                            @foreach (var op in module.Children)
+                            {
+                                <MudNavLink Icon="@op.Icon"
+                                            OnClick="() => OpenOperation(op)">
+                                    @op.Name
+                                </MudNavLink>
+                            }
+                        </MudNavGroup>
+                    }
+                </MudNavMenu>
+            </div>
+
+            <MudDivider Style="flex-shrink:0;" />
+
+            <!-- Toolbar inferior -->
+            <MudToolBar Dense="true" Class="px-2 py-1" Style="flex-shrink:0; gap:4px;">
+                <MudTooltip Text="Actualizar árbol">
+                    <MudIconButton Icon="@Icons.Material.Filled.Refresh"
+                                   Size="Size.Small"
+                                   OnClick="RefreshTree" />
+                </MudTooltip>
+                <MudTooltip Text="Expandir todo">
+                    <MudIconButton Icon="@Icons.Material.Filled.UnfoldMore"
+                                   Size="Size.Small"
+                                   OnClick="ExpandAll" />
+                </MudTooltip>
+                <MudTooltip Text="Colapsar todo">
+                    <MudIconButton Icon="@Icons.Material.Filled.UnfoldLess"
+                                   Size="Size.Small"
+                                   OnClick="CollapseAll" />
+                </MudTooltip>
+                <MudSpacer />
+                <MudText Typo="Typo.caption" Style="opacity:.5;">
+                    @_openWindowCount ventana(s)
+                </MudText>
+            </MudToolBar>
+
+        </div>
+    </MudDrawer>
+
+    <!-- ═══════════════════════════ MAIN CONTENT ═══════════════════════════ -->
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="pa-6">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+    string _search = "";
+    string _username = "Usuario";
+    int _openWindowCount = 0;
+    Dictionary<string, bool> _expandedDict = [];
+
+    IReadOnlyList<OperationNode> _allModules = [];
+
+    IEnumerable<OperationNode> FilteredTree => string.IsNullOrWhiteSpace(_search)
+        ? _allModules
+        : _allModules
+            .Select(m => new OperationNode
+            {
+                Id = m.Id,
+                Name = m.Name,
+                Icon = m.Icon,
+                Children = m.Children
+                    .Where(c => c.Name.Contains(_search, StringComparison.OrdinalIgnoreCase))
+                    .ToList()
+            })
+            .Where(m => m.Children.Count > 0)
+            .ToList();
+
+    protected override void OnInitialized()
+    {
+        _allModules = TreeService.GetTree();
+        BuildExpandedDict();
+    }
+
+    void BuildExpandedDict()
+    {
+        _expandedDict = _allModules
+            .Select((m, i) => (m.Id, expanded: i == 0))
+            .ToDictionary(x => x.Id, x => x.expanded);
+    }
+
+    void ToggleDrawer() => _drawerOpen = !_drawerOpen;
+
+    void OpenOperation(OperationNode op)
+    {
+        WindowManager.OpenOperation(op);
+        _openWindowCount = WindowManager.OpenWindowCount;
+    }
+
+    void ExpandAll()
+    {
+        foreach (var key in _expandedDict.Keys.ToList())
+            _expandedDict[key] = true;
+        StateHasChanged();
+    }
+
+    void CollapseAll()
+    {
+        foreach (var key in _expandedDict.Keys.ToList())
+            _expandedDict[key] = false;
+        StateHasChanged();
+    }
+
+    void RefreshTree()
+    {
+        _allModules = TreeService.GetTree();
+        BuildExpandedDict();
+        StateHasChanged();
+    }
+
+    void Logout() => Nav.NavigateTo("/", forceLoad: true);
+}

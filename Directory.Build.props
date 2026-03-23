@@ -1,0 +1,15 @@
+<Project>
+  <!-- Fix for dotnet build with WindowsAppSDK: locate VS MSBuild extensions automatically -->
+  <PropertyGroup>
+    <_VS18Path>C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\</_VS18Path>
+    <_VS17Path>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\</_VS17Path>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('$(_VS18Path)')">
+    <MSBuildExtensionsPath>$(_VS18Path)</MSBuildExtensionsPath>
+    <VisualStudioVersion>18.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="!Exists('$(_VS18Path)') and Exists('$(_VS17Path)')">
+    <MSBuildExtensionsPath>$(_VS17Path)</MSBuildExtensionsPath>
+    <VisualStudioVersion>17.0</VisualStudioVersion>
+  </PropertyGroup>
+</Project>

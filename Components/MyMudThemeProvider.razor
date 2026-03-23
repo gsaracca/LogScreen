@@ -1,0 +1,34 @@
+@inject _.Services.ThemeService ThemeService
+@implements IDisposable
+
+<CascadingValue Value=false Name="UsePopoverProvider">
+    <MudThemeProvider Theme="MyTheme" IsDarkMode="@ThemeService.IsDarkMode" />
+</CascadingValue>
+
+@code {
+    public static MudTheme MyTheme => new()
+    {
+        Palette = new PaletteLight()
+        {
+            Primary = "#594AE2",
+            AppbarBackground = "#594AE2"
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = "#594AE2",
+            AppbarBackground = "#594AE2"
+        }
+    };
+
+    protected override void OnInitialized()
+    {
+        ThemeService.ThemeChanged += OnThemeChanged;
+    }
+
+    void OnThemeChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        ThemeService.ThemeChanged -= OnThemeChanged;
+    }
+}
